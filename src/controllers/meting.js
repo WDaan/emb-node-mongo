@@ -31,19 +31,22 @@ exports.list = async (lim = 25) => {
 
 /**
  *
+ * FindById
+ *
+ */
+
+exports.find = id => {
+    return Meting.findById(id)
+}
+
+/**
+ *
  * Create
  *
  */
 
 exports.create = (req, res) => {
-    new Meting(req.body).save((err, meting) => {
-        if (err) throw err
-
-        // success message
-        req.flash('success', 'Successfully created a meting')
-        // redirect home
-        return res.redirect('/')
-    })
+    return new Meting(req.body).save()
 }
 
 /**

@@ -8,6 +8,10 @@ router.get('/', async (req, res) => {
     res.json({ metingen })
 })
 
+router.get('/:id', async (req, res) => {
+    res.json(await MetingController.find(req.params.id))
+})
+
 router.get('/info', MetingController.info)
 
 router.get('/count', async (req, res) => {
